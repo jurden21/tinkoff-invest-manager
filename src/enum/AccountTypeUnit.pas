@@ -9,9 +9,10 @@ type
     TAccountType = (ACCOUNT_TYPE_UNKNOWN, ACCOUNT_TYPE_TINKOFF, ACCOUNT_TYPE_TINKOFF_IIS, ACCOUNT_TYPE_INVEST_BOX);
 
     TAccountTypeHelper = record helper for TAccountType
-    const
+    private const
         Names: array [TAccountType] of String = (
             'ACCOUNT_TYPE_UNKNOWN', 'ACCOUNT_TYPE_TINKOFF', 'ACCOUNT_TYPE_TINKOFF_IIS', 'ACCOUNT_TYPE_INVEST_BOX');
+    public
         function Name: string;
         class function ValueByName(Name: String): TAccountType; static;
     end;

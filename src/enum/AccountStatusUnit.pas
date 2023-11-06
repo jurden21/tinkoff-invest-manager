@@ -9,9 +9,10 @@ type
     TAccountStatus = (ACCOUNT_STATUS_UNKNOWN, ACCOUNT_STATUS_CLOSED, ACCOUNT_STATUS_OPEN);
 
     TAccountStatusHelper = record helper for TAccountStatus
-    const
+    private const
         Names: array [TAccountStatus] of String = (
             'ACCOUNT_STATUS_UNKNOWN', 'ACCOUNT_STATUS_CLOSED', 'ACCOUNT_STATUS_OPEN');
+    public
         function Name: string;
         class function ValueByName(Name: String): TAccountStatus; static;
     end;
