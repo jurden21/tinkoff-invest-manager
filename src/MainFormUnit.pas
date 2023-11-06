@@ -33,6 +33,9 @@ var
 
 implementation
 
+uses
+    AccountStatusUnit, AccountTypeUnit;
+
 {$R *.dfm}
 
 procedure TForm1.FormCreate(Sender: TObject);
