@@ -26,11 +26,9 @@ begin
 end;
 
 class function TAccountTypeHelper.ValueByName(Name: String): TAccountType;
-var
-    AccountType: TAccountType;
 begin
     Result := ACCOUNT_TYPE_UNKNOWN;
-    for AccountType := Low(TAccountType) to High(TAccountType) do
+    for var AccountType := Low(TAccountType) to High(TAccountType) do
         if (Names[AccountType] = Name)
         then Result := AccountType;
 end;

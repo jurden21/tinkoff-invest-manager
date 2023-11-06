@@ -26,11 +26,9 @@ begin
 end;
 
 class function TAccountStatusHelper.ValueByName(Name: String): TAccountStatus;
-var
-    AccountStatus: TAccountStatus;
 begin
     Result := ACCOUNT_STATUS_UNKNOWN;
-    for AccountStatus := Low(TAccountStatus) to High(TAccountStatus) do
+    for var AccountStatus := Low(TAccountStatus) to High(TAccountStatus) do
         if (Names[AccountStatus] = Name)
         then Result := AccountStatus;
 end;
