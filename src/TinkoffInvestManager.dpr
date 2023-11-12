@@ -6,8 +6,9 @@ uses
   IniUtilUnit in 'util\IniUtilUnit.pas',
   RegistryUtilUnit in 'util\RegistryUtilUnit.pas',
   ApplicationContextUnit in 'config\ApplicationContextUnit.pas',
-  AccountStatusUnit in 'enum\AccountStatusUnit.pas',
-  AccountTypeUnit in 'enum\AccountTypeUnit.pas';
+  AccountStatusUnit in 'tinkoff\enum\AccountStatusUnit.pas',
+  AccountTypeUnit in 'tinkoff\enum\AccountTypeUnit.pas',
+  TinkoffClientUnit in 'tinkoff\TinkoffClientUnit.pas';
 
 {$R *.res}
 
