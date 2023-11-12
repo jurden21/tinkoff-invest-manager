@@ -4,11 +4,8 @@ interface
 
 type
     TApplicationContext = class
-    private
-        FAuthorizationToken: String;
     public
-        constructor Create;
-        function GetAuthorization: String;
+        class function GetAuthorization: String;
     end;
 
 implementation
@@ -18,14 +15,9 @@ uses
 
 { TApplicationContext }
 
-constructor TApplicationContext.Create;
+class function TApplicationContext.GetAuthorization: String;
 begin
-    FAuthorizationToken := TIniUtil.ReadString('Tinkoff', 'Key');
-end;
-
-function TApplicationContext.GetAuthorization: String;
-begin
-    Result := 'Bearer ' + FAuthorizationToken;
+    Result := 'Bearer ' + TIniUtil.ReadString('Tinkoff', 'Key');
 end;
 
 end.

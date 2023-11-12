@@ -7,8 +7,6 @@ uses
     Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls, REST.Types, REST.Client, Data.Bind.Components,
     Data.Bind.ObjectScope,
 
-    ApplicationContextUnit,
-
     cxGraphics, cxLookAndFeels, cxLookAndFeelPainters, cxButtons, cxControls, cxContainer, cxEdit, cxTextEdit, cxMemo;
 
 type
@@ -20,10 +18,7 @@ type
         procedure cxButton1Click(Sender: TObject);
         procedure cxButton2Click(Sender: TObject);
         procedure cxButton3Click(Sender: TObject);
-        procedure FormCreate(Sender: TObject);
-        procedure FormDestroy(Sender: TObject);
     private
-        ApplicationContext: TApplicationContext;
     public
         { Public declarations }
     end;
@@ -34,19 +29,9 @@ var
 implementation
 
 uses
-    AccountStatusUnit, AccountTypeUnit;
+    AccountStatusUnit, AccountTypeUnit, ApplicationContextUnit;
 
 {$R *.dfm}
-
-procedure TForm1.FormCreate(Sender: TObject);
-begin
-    ApplicationContext := TApplicationContext.Create;
-end;
-
-procedure TForm1.FormDestroy(Sender: TObject);
-begin
-    ApplicationContext.Free;
-end;
 
 procedure TForm1.cxButton1Click(Sender: TObject);
 var
@@ -61,7 +46,7 @@ begin
         RESTRequest.Client := RESTClient;
         RESTRequest.Response := RESTResponse;
         RESTRequest.Method := TRESTRequestMethod.rmPOST;
-        RESTRequest.Params.AddItem('Authorization', ApplicationContext.GetAuthorization, pkHTTPHEADER, [poDoNotEncode],
+        RESTRequest.Params.AddItem('Authorization', TApplicationContext.GetAuthorization, pkHTTPHEADER, [poDoNotEncode],
             TRESTContentType.ctAPPLICATION_JSON);
         RESTRequest.Params.AddItem('Contect-Type', 'application/json', pkHTTPHEADER, [poDoNotEncode],
             TRESTContentType.ctAPPLICATION_JSON);
@@ -93,7 +78,7 @@ begin
         RESTRequest.Client := RESTClient;
         RESTRequest.Response := RESTResponse;
         RESTRequest.Method := TRESTRequestMethod.rmPOST;
-        RESTRequest.Params.AddItem('Authorization', ApplicationContext.GetAuthorization, pkHTTPHEADER, [poDoNotEncode],
+        RESTRequest.Params.AddItem('Authorization', TApplicationContext.GetAuthorization, pkHTTPHEADER, [poDoNotEncode],
             TRESTContentType.ctAPPLICATION_JSON);
         RESTRequest.Params.AddItem('Contect-Type', 'application/json', pkHTTPHEADER, [poDoNotEncode],
             TRESTContentType.ctAPPLICATION_JSON);
@@ -125,7 +110,7 @@ begin
         RESTRequest.Client := RESTClient;
         RESTRequest.Response := RESTResponse;
         RESTRequest.Method := TRESTRequestMethod.rmPOST;
-        RESTRequest.Params.AddItem('Authorization', ApplicationContext.GetAuthorization, pkHTTPHEADER, [poDoNotEncode],
+        RESTRequest.Params.AddItem('Authorization', TApplicationContext.GetAuthorization, pkHTTPHEADER, [poDoNotEncode],
             TRESTContentType.ctAPPLICATION_JSON);
         RESTRequest.Params.AddItem('Contect-Type', 'application/json', pkHTTPHEADER, [poDoNotEncode],
             TRESTContentType.ctAPPLICATION_JSON);
